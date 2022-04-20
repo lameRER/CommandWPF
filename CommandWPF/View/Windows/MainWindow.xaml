@@ -32,10 +32,8 @@
                             <DataGridTextColumn Header="VIN" Binding="{Binding Vin}"></DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <!--<ListView ItemsSource="{Binding Autos}" DisplayMemberPath="Body.Name">
-                    </ListView>-->
                 </GroupBox>
-                <GroupBox Grid.Row="1" Header="Елементы управления">
+                <GroupBox Grid.Row="1" Header="Элементы управления">
                     <StackPanel Margin="3">
                         <ComboBox Margin="3" SelectedIndex="{Binding SelectedAuto, UpdateSourceTrigger=PropertyChanged}">
                         <ComboBoxItem></ComboBoxItem>
@@ -47,27 +45,5 @@
                     </StackPanel>
                 </GroupBox>
             </Grid>
-        <!-- <GroupBox Header="Список автомобилей">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition MaxHeight="30"></RowDefinition>
-                </Grid.RowDefinitions>
-                <ListBox Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,5">
-                    
-                </ListBox>
-                <Menu Grid.Column="0" Grid.Row="1" Margin="3" VerticalAlignment="Center">
-                    <MenuItem Header="Добавить" Margin="3">
-                        <MenuItem Header="Легковой автомобиль"></MenuItem>
-                    </MenuItem>
-                </Menu>
-                <Button Grid.Column="1" Grid.Row="1" Content="Удалить"></Button>
-            </Grid>
-        </GroupBox>
-        <GroupBox Header="Box1"></GroupBox> -->
-    </DockPanel>
+          </DockPanel>
 </Window>

@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using System.Windows.Navigation;
 using CommandWPF.Infrastructure.Command;
 using CommandWPF.Model;
 using CommandWPF.Model.Interface;
