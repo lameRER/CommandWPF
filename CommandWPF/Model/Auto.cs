@@ -15,7 +15,7 @@ namespace CommandWPF.Model
 
         public string Vin { get; }
 
-        public Auto(IAutoFactory factory)
+        public Auto(IAutoFactory? factory)
         {
             Body = factory.CreateBody();
             Engine = factory.CreateEngine();
