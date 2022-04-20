@@ -1,0 +1,49 @@
+﻿<Window x:Class="CommandWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CommandWPF"
+        xmlns:vm="clr-namespace:CommandWPF.ViewModel"
+        xmlns:cmd="clr-namespace:CommandWPF.Infrastructure.Command"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="370" Width="400">
+    <Window.DataContext>
+        <vm:MainWindowsViewModel></vm:MainWindowsViewModel>
+    </Window.DataContext>
+    <DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition MaxHeight="85"></RowDefinition>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Список автомобилей">
+                    <DataGrid ItemsSource="{Binding Autos}" 
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              GridLinesVisibility="All">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Кузов" Binding="{Binding Body.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Двигатель"  Binding="{Binding Engine.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Топливный бак" Binding="{Binding Tank.Name}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="VIN" Binding="{Binding Vin}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </GroupBox>
+                <GroupBox Grid.Row="1" Header="Элементы управления">
+                    <StackPanel Margin="3">
+                        <ComboBox Margin="3" SelectedIndex="{Binding SelectedAuto, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBoxItem></ComboBoxItem>
+                        <ComboBoxItem Content="Легковые"></ComboBoxItem>
+                        <ComboBoxItem Content="Грузовые"></ComboBoxItem>
+                        </ComboBox>
+                        <Button Margin="3" Content="Запустить производство" 
+                                Command="{Binding AddAutoCommand}" CommandParameter="{Binding SelectedAuto}"/>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+          </DockPanel>
+</Window>
